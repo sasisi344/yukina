@@ -9,8 +9,9 @@ import swup from "@swup/astro";
 import rehypeSlug from "rehype-slug";
 import rehypeKatex from "rehype-katex";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import remarkMath from "remark-math";
+import { remarkTOC } from "./src/plugins/remark-toc.mjs";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+import remarkMath from "remark-math";
 
 import YukinaConfig from "./yukina.config";
 
@@ -32,11 +33,20 @@ export default defineConfig({
     updateBodyClass: false,
     globalInstance: true,
   }), sitemap(), pagefind(), mdx()],
+  build: {
+    format: 'directory',
+  },
+  vite: {
+    plugins: [
+      // カスタムプラグインの追加（必要に応じて）
+    ],
+  },
+ 
   markdown: {
     shikiConfig: {
       theme: "github-dark-default",
     },
-    remarkPlugins: [remarkReadingTime, remarkMath],
+    remarkPlugins: [remarkReadingTime, remarkMath, remarkTOC],
     rehypePlugins: [
       rehypeSlug,
       rehypeKatex,

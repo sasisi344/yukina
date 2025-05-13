@@ -10,7 +10,7 @@ const YukinaConfig: Configuration = {
 
   site: "https://yukina-blog.vercel.app",
 
-  locale: "en", // set for website language and date format
+  locale: "ja", // set for website language and date format
 
   navigators: [
     {
@@ -64,7 +64,7 @@ const YukinaConfig: Configuration = {
     "https://s2.loli.net/2025/01/25/JjpLOW8VSmufzlA.webp",
   ],
 
-  slugMode: "HASH", // 'RAW' | 'HASH'
+  slugMode: "RAW", // 'RAW' | 'HASH'
 
   license: {
     name: "CC BY-NC-SA 4.0",
@@ -73,6 +73,7 @@ const YukinaConfig: Configuration = {
 
   // WIP functions
   bannerStyle: "LOOP", // 'loop' | 'static' | 'hidden'
+  showTOC: true, // 目次（TOC）を表示するか
 };
 
 export default YukinaConfig;

@@ -1,15 +1,18 @@
 ---
 title: 【福井県】海上釣堀フィッシングレインボー|団体・貸切に最適!バリアフリー対応の大物釣り堀
-date: 2025-05-08T21:27:56+09:00
+published: 2025-05-08T21:27:56+09:00
 draft: true
+region: chubu-sea-of-japan
+facilityType: marine-fishing-pond
+prefecture: Fukui
+slug: kaijyoutsuribori-rainbow
+category: 中部（日本海側）
 tags:
   - 海上釣り堀
   - 福井県
   - 手ぶらOK
   - バリアフリー
   - 釣り放題
-categories:
-  - chubu-sea-of-japan/marine-fishing-pond/fukui
 summary: 【福井県美浜町】海上釣堀フィッシングレインボーは、マダイやブリなどの大物釣りが楽しめる陸続きの海上釣り堀。男性13,000円、女性10,000円で釣り放題制。特に団体・貸切プランが充実しており、平日5名から、土日7名から貸切可能。10名以上の団体は1人6,500円とお得。バリアフリー対応で車椅子でも利用可能。竿のレンタルもあり初心者も安心して楽しめる施設。
 ---
 福井県美浜町の「海上釣堀フィッシングレインボー」は、マダイやブリなどの大物が狙える人気の海上釣り堀です。

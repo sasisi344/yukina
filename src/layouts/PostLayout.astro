@@ -2,49 +2,54 @@
 import Main from "../layouts/MainLayout.astro";
 import Markdown from "../components/Markdown.astro";
 import CopyRight from "../components/misc/CopyRight.astro";
+import YukinaConfig from "../../yukina.config";
+import Breadcrumb from "../components/Breadcrumb.astro";
 
-interface Props {
-  title?: string;
-  subTitle?: string;
-  bannerImage?: string;
-  published?: Date;
-  license?: {
-    name: string;
-    url?: string;
-  };
-  author?: string;
-  sourceLink?: string;
+const entry = (Astro.props as any).entry;
+const frontmatter = entry?.data ?? {};
+const toc: any[] = frontmatter.toc ?? [];
+const showToc = (frontmatter.showToc !==false) && YukinaConfig.showTOC;
+
+function countH2(toc: any[]): number {
+  if (!Array.isArray(toc)) return 0;
+  return toc.length;
 }
-
-const {
-  title,
-  subTitle,
-  bannerImage,
-  published,
-  license,
-  author,
-  sourceLink,
-} = Astro.props;
+const h2Count = countH2(toc);
 ---
-
-<Main title={title} subTitle={subTitle} bannerImage={bannerImage}>
-  <!-- <Fragment set:html={tocHTMLString} /> -->
+<Main title={frontmatter.title} subTitle={frontmatter.subTitle} bannerImage={frontmatter.bannerImage}>
   <div class="article-wrapper">
     <div class="article">
+      <Breadcrumb 
+        region={frontmatter.region}
+        facilityType={frontmatter.facilityType}
+        prefecture={frontmatter.prefecture}
+        title={frontmatter.title}
+        slug={frontmatter.slug}
+      />
+      {showToc && h2Count >= 2 && (
+        <nav class="toc-block bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-6">
+          <div class="font-bold mb-2">目次</div>
+          <ul>
+            {toc.map(item => (
+              <li class="ml-2 mb-1">
+                <a href={`#${item.slug}`}>{item.title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       <Markdown>
         <slot />
       </Markdown>
-      {
-        published && title && (
-          <CopyRight
-            title={title}
-            published={published}
-            license={license}
-            author={author}
-            sourceLink={sourceLink}
-          />
-        )
-      }
+      {frontmatter.published && frontmatter.title && (
+        <CopyRight
+          title={frontmatter.title}
+          published={frontmatter.published}
+          license={frontmatter.license}
+          author={frontmatter.author}
+          sourceLink={frontmatter.sourceLink}
+        />
+      )}
     </div>
   </div>
 </Main>
@@ -56,5 +61,8 @@ const {
   .article {
     @apply flex flex-col;
     font-size: var(--primary-font);
+  }
+  .toc-block {
+    border-left: 4px solid var(--primary-color, #3b82f6);
   }
 </style>

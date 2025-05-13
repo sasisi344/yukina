@@ -1,15 +1,18 @@
 ---
 title: 【福井県】ひるが海上釣堀|マダイ・シマアジが釣れる!料金・釣果・コツ完全ガイド
-date: 2025-05-08T20:58:50+09:00
+published: 2025-05-08T20:58:50+09:00
 draft: true
+region: chubu-sea-of-japan
+facilityType: marine-fishing-pond
+prefecture: Fukui
+slug: hiruga-kaijyoutsuribori
+category: 中部（日本海）
 tags:
   - 海上釣り堀
   - 福井県
   - 手ぶらOK
   - 渡船
   - 買取方式
-categories:
-  - chubu-sea-of-japan/marine-fishing-pond/fukui
 summary: 【福井県美浜町】ひるが海上釣堀は、マダイ・シマアジ・イサキが狙える若狭湾沿いの海上釣り堀。料金は大人3,700円、子供2,600円の買取方式で、基本料金にマダイ2匹分程度が含まれる。それ以上は追加料金発生なので注意。営業時間は7:00~12:00、水曜定休。12月4週の日曜から3月末まで休園。竿のレンタル(500円)あり、魚の下処理も有料で対応。初心者から楽しめる手軽な釣りスポット。
 ---
 福井県美浜町の「ひるが海上釣堀」は、マダイやシマアジなど高級魚を手軽に狙える人気スポットです。

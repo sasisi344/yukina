@@ -9,7 +9,7 @@ interface Configuration {
 
   site: string;
 
-  locale: "en" | "zh-CN";
+  locale: "ja" | "en";
 
   navigators: { nameKey: I18nKeys; href: string }[];
 
@@ -34,6 +34,7 @@ interface Configuration {
   };
 
   bannerStyle: "LOOP";
+  showTOC: boolean;
 }
 
 export type { Configuration };

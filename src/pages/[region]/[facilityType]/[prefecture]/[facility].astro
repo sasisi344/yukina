@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+// 動的ルーティングのパスを全て生成
+export async function getStaticPaths() {
+  const facilities = await getCollection('fishing-facilities');
+  
+  return facilities.map(entry => {
+    const fileInfo = entry.id.split('/');
+    // entry.idがフルパスの場合（例: hokkaido/marine-fishing-pond/sapporo/facility-a.md）
+    const region = entry.data.region || fileInfo[0];
+    const facilityType = entry.data.facilityType || fileInfo[1];
+    const prefecture = entry.data.prefecture || fileInfo[2];
+    const slug = entry.data.slug || entry.id.split('/').pop().replace('.md', '');
+    
+    return {
+      params: { 
+        region,
+        facilityType, 
+        prefecture,
+        facility: slug
+      },
+      props: { entry }
+    };
+  });
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title}>
+  <article>
+    <h1>{entry.data.title}</h1>
+    <div class="tags">
+      {entry.data.tags.map(tag => (
+        <a href={`/tags/${tag}`} class="tag">{tag}</a>
+      ))}
+    </div>
+    <Content />
+  </article>
+</BaseLayout>
