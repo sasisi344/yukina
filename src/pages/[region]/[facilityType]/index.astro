@@ -1,0 +1,110 @@
+---
+// src/pages/[region]/[facilityType]/index.astro
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import MainLayout from '../../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const validRegions = ['hokkaido', 'tohoku', 'kanto', 'chubu-nihonkai', 'chubu-taiheiyou', 'kansai', 'shikoku', 'chugoku', 'kyusyu', 'okinawa'];
+  const validFacilityTypes = ['sea-fishing-facility', 'marine-fishing-pond'];
+  const allPosts = await Astro.glob('../../../contents/posts/**/*.md');
+  const paths = [];
+  for (const region of validRegions) {
+    for (const facilityType of validFacilityTypes) {
+      const validPosts = allPosts.filter(post =>
+        !post.frontmatter.draft &&
+        post.frontmatter.region === region &&
+        post.frontmatter.facilityType === facilityType
+      );
+      if (validPosts.length > 0) {
+        paths.push({
+          params: { region, facilityType },
+          props: { posts: validPosts }
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const { region, facilityType } = Astro.params as { region: string, facilityType: string };
+let { posts } = Astro.props as { posts?: any[] };
+if (!posts) posts = [];
+
+// 地域名の変換マップ
+const regionMap: Record<string, string> = {
+  'hokkaido': '北海道',
+  'tohoku': '東北地方',
+  'kanto': '関東地方',
+  'chubu-nihonkai': '中部日本海側',
+  'chubu-taiheiyou': '中部太平洋側',
+  'kansai': '関西地方',
+  'shikoku': '四国地方',
+  'chugoku': '中国地方',
+  'kyusyu': '九州',
+  'okinawa': '沖縄県'
+};
+
+// 施設タイプの変換マップ
+const facilityTypeMap: Record<string, string> = {
+  'sea-fishing-facility': '海釣り施設',
+  'marine-fishing-pond': '海上釣り堀'
+};
+
+// 値の変換（存在しない場合は元の値を使用）
+const regionLabel = regionMap[region] || region;
+const facilityTypeLabel = facilityTypeMap[facilityType] || facilityType;
+
+// ページタイトルの生成
+const pageTitle = `${regionLabel}の${facilityTypeLabel}一覧`;
+---
+
+<MainLayout title={pageTitle}>
+  <Breadcrumb region={region} facilityType={facilityType} />
+  
+  <h1>{pageTitle}</h1>
+  
+  <div class="post-list">
+    {posts.length === 0 ? (
+      <div>該当する記事がありません。</div>
+    ) : (
+      posts.map(post => (
+        <div class="post-card">
+          <a href={`/${region}/${facilityType}/${post.frontmatter.slug}`}>
+            <h2>{post.frontmatter.title}</h2>
+            <p>{post.frontmatter.summary}</p>
+          </a>
+        </div>
+      ))
+    )}
+  </div>
+</MainLayout>
+
+<style>
+  .post-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .post-card {
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    padding: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .post-card a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .post-card h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+</style>

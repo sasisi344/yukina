@@ -2,7 +2,6 @@
 title: 東北地方の海釣りスポット比較一覧
 published: 2025-05-11T13:14:17+09:00
 region: tohoku
-facilityType: hikaku
 prefecture: aomori
 draft: true
 slug: tohoku-fishingspot-hikaku

@@ -2,7 +2,7 @@
 title: 【徳島県】浜部渡船 海上釣り堀 | 格安30分5匹釣り放題！初心者向け短時間プラン
 published: 2025-05-11T14:14:22+09:00
 region: shikoku
-facilityType: marine-foshing-pond
+facilityType: marine-fishing-pond
 prefecture: tokushima
 slug: hamabetosen-tsribori
 draft: true

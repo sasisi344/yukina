@@ -2,7 +2,7 @@
 title: 【山形県】由良海洋釣堀｜東北唯一の海上釣り堀・手ぶらOK・おすすめ釣り情報
 published: 2025-05-11T12:46:27+09:00
 region: tohoku
-facilityType: marine-foshing-pond
+facilityType: marine-fishing-pond
 prefecture: yamagata
 draft: true
 slug: yurakaiyou-tsuribori

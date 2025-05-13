@@ -22,11 +22,8 @@ const h2Count = countH2(toc);
       <Breadcrumb 
         region={frontmatter.region}
         facilityType={frontmatter.facilityType}
-        prefecture={frontmatter.prefecture}
-        title={frontmatter.title}
-        slug={frontmatter.slug}
       />
-      {showToc && h2Count >= 2 && (
+      {(showToc && h2Count >= 2) && (
         <nav class="toc-block bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-6">
           <div class="font-bold mb-2">目次</div>
           <ul>

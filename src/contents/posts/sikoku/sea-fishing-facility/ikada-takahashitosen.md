@@ -2,7 +2,7 @@
 title: 【高知県】筏釣り 高橋渡船 | 4,000円で一日楽しめる！屋根付き筏もある本格海釣りスポット
 published: 2025-05-12T16:00:51+09:00
 region: shikoku
-facilityType: sea-fishing-facility, marine-foshing-pond
+facilityType: sea-fishing-facility
 prefecture: kouchi
 slug: ikada-takahashitosen
 draft: true

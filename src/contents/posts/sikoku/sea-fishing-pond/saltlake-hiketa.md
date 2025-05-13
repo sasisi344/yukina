@@ -2,7 +2,7 @@
 title: 【香川県】ソルトレイクひけた 安戸池 | 12,000円釣り放題！珍しいルアーコーナー完備の本格海上釣り堀
 published: 2025-05-11T14:39:53+09:00
 region: shikoku
-facilityType: marine-foshing-pond
+facilityType: marine-fishing-pond
 prefecture: kagawa
 slug: saltlake-hiketa
 draft: true

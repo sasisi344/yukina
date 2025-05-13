@@ -6,7 +6,7 @@ region: chubu-sea-of-japan
 facilityType: marine-fishing-pond
 prefecture: Fukui
 slug: hiruga-kaijyoutsuribori
-category: 中部（日本海）
+category: 中部（日本海側）
 tags:
   - 海上釣り堀
   - 福井県

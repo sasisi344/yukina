@@ -2,7 +2,7 @@
 title: 【徳島県】ファミリー釣り堀 釣ってみんでフィッシング | 初心者・家族連れ向け屋内型海上釣り堀完全ガイド
 published: 2025-05-11T13:48:26+09:00
 region: shikoku
-facilityType: marine-foshing-pond
+facilityType: marine-fishing-pond
 prefecture: tokushima
 slug: family-tsuribori-ttuteminde
 draft: true

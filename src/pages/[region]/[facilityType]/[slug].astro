@@ -1,0 +1,38 @@
+---
+// src/pages/[region]/[facilityType]/[slug].astro の修正版
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import MainLayout from '../../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  // すべてのマークダウンファイルをインポートする例
+  const allFiles = import.meta.glob('../../../contents/posts/**/*.md');
+  const posts = [];
+  for (const path in allFiles) {
+    const file = await allFiles[path]();
+    // パスからregion、facilityType、slugを抽出
+    const pathParts = path.split('/');
+    const slug = pathParts.pop().replace('.md', '');
+    const facilityType = pathParts.pop();
+    const region = pathParts.pop();
+    // フロントマターがdraft: trueのものは除外
+    if (file.frontmatter.draft) continue;
+    posts.push({
+      params: { region, facilityType, slug },
+      props: { post: file }
+    });
+  }
+  return posts;
+}
+
+const { region, facilityType } = Astro.params;
+const { post } = Astro.props;
+const { Content, frontmatter } = post;
+---
+
+<MainLayout title={frontmatter.title}>
+  <Breadcrumb region={region} facilityType={facilityType} />
+  <article>
+    <h1>{frontmatter.title}</h1>
+    <Content />
+  </article>
+</MainLayout>

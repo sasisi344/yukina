@@ -2,7 +2,7 @@
 title: 【高知県】海上釣り堀 幸丸 | 高級魚狙いの釣り放題と初心者向けトライアルコースが選べる！
 published: 2025-05-12T15:40:31+09:00
 region: shikoku
-facilityType: sea-fishing-facility, marine-foshing-pond
+facilityType: marine-fishing-pond
 prefecture: kouchi
 slug: kaijyo-sachimaru
 draft: true
